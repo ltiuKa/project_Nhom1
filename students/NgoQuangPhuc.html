@@ -4,31 +4,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang cá nhân</title>
+    <title>Trang cá nhân - Ngô Quang Phúc</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #fff;
+            text-align: center;
         }
 
         .container {
             max-width: 800px;
-            margin: auto;
-        }
-
-        h1,
-        h2 {
-            color: #333;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid #fff;
         }
 
         img {
             width: 150px;
             border-radius: 50%;
+            border: 2px solid #fff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        h1,
+        h2 {
+            color: #fff;
+        }
+
+        .typing-effect {
+            display: inline-block;
+            border-right: 2px solid #00ffcc;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
         }
 
         .section {
-            margin-bottom: 20px;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+            border: 1px solid #fff;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        a {
+            color: #00ffcc;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ffcc00;
         }
     </style>
 </head>
@@ -36,20 +84,19 @@
 <body>
     <div class="container">
         <header>
-            <h1>Ngô Quang Phúc</h1>
-            <img src="https://cdn.discordapp.com/attachments/1075325988491231345/1346738036742033439/IMG_20250305_135348_462.jpg?ex=67d3d309&is=67d28189&hm=b57344f9f423ea9c2f4f52280035bf026163a48bfa166ed131775ac700956a73&"
-                alt="Ảnh đại diện">
+            <h1><span class="typing-effect" id="typing"></span></h1>
+            <img src="/assets/images/IMG_20250305_135348_462.webp" alt="Ảnh đại diện">
             <p>Sở thích: Công nghệ, lập trình, chơi game</p>
             <p>Định hướng: Trở thành Mobile Developer</p>
         </header>
 
         <section class="section">
-            <h2>Quá trình học tập</h2>
+            <h2>&lt;Quá trình học tập/&gt;</h2>
             <p>Đã học các môn: Lập trình di động, Phát triển phần mềm, Cấu trúc dữ liệu & Giải thuật.</p>
         </section>
 
         <section class="section">
-            <h2>Kỹ năng</h2>
+            <h2>&lt;Kỹ năng/&gt;</h2>
             <ul>
                 <li>Ngôn ngữ: C#, Dart, JavaScript</li>
                 <li>Thiết kế UI/UX: Figma</li>
@@ -58,19 +105,46 @@
         </section>
 
         <section class="section">
-            <h2>Dự án cá nhân</h2>
+            <h2>&lt;Dự án cá nhân/&gt;</h2>
             <p>- <strong>Game Cờ Ca-rô:</strong> Một trò chơi cho hai người chơi trên cùng một mạng.</p>
             <p>- <strong>Top Down Wave Shooter:</strong> Game bắn súng trên mobile phát triển bằng Godot.</p>
         </section>
 
         <section class="section">
-            <h2>Liên hệ</h2>
+            <h2>&lt;Liên hệ/&gt;</h2>
             <p>SĐT: 0347123534</p>
             <p>Email: pquanngo@gmail.com</p>
-            <p>LinkedIn: <a href="#">https://www.linkedin.com/in/ng%C3%B4-quang-ph%C3%BAc-3a916b321/</a></p>
-            <p>GitHub: <a href="#">https://github.com/aycifym8</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/ng%C3%B4-quang-ph%C3%BAc-3a916b321/">Ngô Quang Phúc</a>
+            </p>
+            <p>GitHub: <a href="https://github.com/aycifym8">aycifym8</a></p>
         </section>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const text = "<Ngô Quang Phúc/>";
+            let index = 0;
+            const typingElement = document.getElementById("typing");
+
+            function type() {
+                if (index < text.length) {
+                    typingElement.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(type, 100);
+                } else {
+                    setTimeout(reset, 2000);
+                }
+            }
+
+            function reset() {
+                typingElement.innerHTML = "";
+                index = 0;
+                setTimeout(type, 500);
+            }
+
+            type();
+        });
+    </script>
 </body>
 
 </html>
